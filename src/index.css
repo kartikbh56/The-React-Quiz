@@ -29,6 +29,10 @@ body {
   padding: 3.2rem;
 }
 
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .app {
   display: flex;
   flex-direction: column;
