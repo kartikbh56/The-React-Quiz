@@ -3,7 +3,6 @@
   --color-dark: #495057;
   --color-medium: #ced4da;
   --color-light: #f1f3f5;
-
   --color-theme: #1098ad;
   --color-accent: #ffa94d;
 }
@@ -41,18 +40,15 @@ button {
 }
 
 .main {
-  width: 90%;
-  max-width: 50rem;
+  width: 50rem;
 }
 
 .app-header {
-  width: 100%;
-  max-width: 66rem;
+  width: 66rem;
   margin-bottom: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
 .error {
@@ -106,19 +102,20 @@ h4 {
   color: var(--color-medium);
 }
 
-progress {
+.progress-bar-container {
   width: 100%;
-  height: 12px;
+  background-color: rgba(14, 14, 14, 0.159);
+  height: 8px;
+  border-radius: 10px;
+  overflow: hidden;
   grid-column: 1 / -1;
 }
 
-::-webkit-progress-bar {
-  background-color: var(--color-medium);
-  border-radius: 100px;
-}
-::-webkit-progress-value {
+.progress-bar {
+  height: 100%;
+  transition: width 0.8s ease-out;
+  border-radius: 10px;
   background-color: var(--color-theme);
-  border-radius: 100px;
 }
 
 .btn {
@@ -135,11 +132,11 @@ progress {
 }
 
 .btn:not([disabled]):hover {
-  background-color: var(--color-darkest);
+  background-color: rgba(0, 0, 0, 0.052);
 }
 
 .btn-option:not([disabled]):hover {
-  transform: translateX(1.2rem);
+  transform: translateX(0.7rem);
 }
 
 .btn[disabled]:hover {
@@ -174,7 +171,7 @@ progress {
 }
 
 .answer {
-  transform: translateX(2rem);
+  transform: translateX(1.5rem);
 }
 
 .result {
@@ -205,6 +202,7 @@ progress {
   align-items: center;
   margin-top: 4rem;
   gap: 1.6rem;
+
   color: var(--color-medium);
   font-size: 1.4rem;
 }
@@ -244,6 +242,23 @@ progress {
   80% {
     background-position: 0% 50%, 50% 50%, 100% 100%;
   }
+}
+
+/* ********** */
+/* First counter example */
+.counter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 6rem;
+}
+
+.counter * {
+  font-size: inherit;
+  padding: 0.8rem;
 }
 
 @media (max-width: 768px) {

@@ -19,7 +19,7 @@ const initialState = {
   currentQuestion: 0,
   score: 0,
   selectedOption: null,
-  seconds: 450,
+  seconds: 400,
   highScore: localStorage.getItem("highScore"),
 };
 
@@ -77,13 +77,15 @@ export default function App() {
     dispatch
   ] = useReducer(reducer, initialState);
   useEffect(function () {
-    fetch(
-      "https://gist.githubusercontent.com/kartikbh56/512a49603252037878de643862f3cfbe/raw/questions.json"
-    )
+    fetch("https://questions-api-kohl.vercel.app/?vercelToolbarCode=Xi1-plCizgRHPIB")
       .then((data) => data.json())
       .then((data) =>
         dispatch({ type: "data_received", data: data.questions })
-      );
+      ).catch(err=>{
+        fetch("https://gist.githubusercontent.com/kartikbh56/512a49603252037878de643862f3cfbe/raw/questions.json")
+        .then(data=>data.json())
+        .then(data=>dispatch({type:"data_received",data:data.questions}))
+      })
   }, []);
 
   const toatalPoints = questions

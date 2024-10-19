@@ -5,9 +5,10 @@ export default function Progress({
   toatalPoints,
   completedQuestions,
 }) {
+  const progres = (completedQuestions*100)/totalQuestions;
   return (
     <header className="progress">
-      <progress max={totalQuestions} value={completedQuestions}></progress>
+      <ProgressBar percentage={progres}/>
       <p>
         {"Question "}
         <strong>{currentQuestion + 1} </strong>/{" " + totalQuestions}
@@ -17,5 +18,16 @@ export default function Progress({
         {" / " + toatalPoints}
       </p>
     </header>
+  );
+}
+
+function ProgressBar({ percentage }) {
+  return (
+    <div className="progress-bar-container">
+      <div
+        className="progress-bar"
+        style={{ width: `${percentage}%` }}
+      ></div>
+    </div>
   );
 }
